@@ -1,0 +1,39 @@
+public class lab2_4 {
+    public static int[][] rotate90Clockwise(int[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int[][] rotated = new int[m][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                rotated[j][n - 1 - i] = matrix[i][j];
+            }
+        }
+
+        return rotated;
+    }
+
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int val : row) {
+                System.out.print(val + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main() {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+
+        System.out.println("Исходная матрица:");
+        printMatrix(matrix);
+
+        int[][] rotated = rotate90Clockwise(matrix);
+
+        System.out.println("\nПовернутая на 90° по часовой стрелке:");
+        printMatrix(rotated);
+    }
+}
